@@ -11,13 +11,18 @@ public class StartManager : MonoBehaviour
     [SerializeField] private StartButton reply1;
     [SerializeField] private StartButton replyHigh2;
     [SerializeField] private List<GameObject> frames = new List<GameObject>();
+    [SerializeField] private GameObject notif;
     [SerializeField] private AudioSource _audioS;
     [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioSource email;
+    [SerializeField] private AudioClip ping;
 
     private float timer = 0f;
     private float timer2 = 0f;
+    private float timer3 = 0f;
     private bool highlight = true;
     private int i = 0;
+    private bool notification = false;
 
     void Start()
     {
@@ -26,23 +31,37 @@ public class StartManager : MonoBehaviour
     }
     void Update()
     {
-        timer += Time.deltaTime;
-        if(timer >= 1f && !reply1.off && !replyHigh2.off)
+        timer3 += Time.deltaTime;
+        if(timer3 >= 1f && !notification)
         {
-            if(highlight)
+            email.clip = ping;
+            email.Play();
+            
+            notif.SetActive(true);
+            reply.SetActive(true);
+            notification = true;
+        }
+        
+        if(notification)
+        {
+            timer += Time.deltaTime;
+            if(timer >= 1f && !reply1.off && !replyHigh2.off)
             {
-                replyHigh.SetActive(true);
-                reply.SetActive(false);
-                highlight = false;
-            }
-            else
-            {
-                reply.SetActive(true);
-                replyHigh.SetActive(false);
-                highlight = true;
-            }
+                if(highlight)
+                {
+                    replyHigh.SetActive(true);
+                    reply.SetActive(false);
+                    highlight = false;
+                }
+                else
+                {
+                    reply.SetActive(true);
+                    replyHigh.SetActive(false);
+                    highlight = true;
+                }
 
-            timer = 0f;
+                timer = 0f;
+            }
         }
 
         if(reply1.off || replyHigh2.off)
