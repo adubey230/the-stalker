@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour{
     //edit max time in the inspector of gameobject that holds the script
     public float time = 5f;
-    public bool runnin = false;
+    public bool running = false;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private Slider healthBar;
 
@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour{
     private void Start()
     {
         maxTime = time;
-        runnin = true;
+        running = true;
 
         if (healthBar != null)
         {
@@ -23,7 +23,7 @@ public class Timer : MonoBehaviour{
 
     void Update()
     {
-        if (runnin)
+        if (running)
         {
             if (time > 0)
             {
@@ -37,10 +37,19 @@ public class Timer : MonoBehaviour{
             {
                 //Debug.Log("time ran out");
                 time = 0;
-                runnin = false;
+                running = false;
                 gameOver.SetActive(true);
                 LocatorDialogue.Instance.DialogueScript.PlayStalkerGameOverAudio();
             }
         }
+    }
+
+    public void PauseTimer()
+    {
+        running = false;
+    }
+    public void UnpauseTimer()
+    {
+        running = true;
     }
 }

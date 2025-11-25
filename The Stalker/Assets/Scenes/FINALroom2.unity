@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   time: 300
-  runnin: 0
+  running: 0
   gameOver: {fileID: 1901467241}
   healthBar: {fileID: 168139874}
 --- !u!114 &168139874
@@ -4181,6 +4181,7 @@ MonoBehaviour:
   elisa_dialoguebox: {fileID: 789418179}
   openStalker: {fileID: 11400000, guid: e7c7130baea6be34fa9b7f893f80d512, type: 2}
   endStalker: {fileID: 11400000, guid: eeeb1835cefac3a468df0eaf5034a9d5, type: 2}
+  timer: {fileID: 1589975031}
 --- !u!114 &451209020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16163,7 +16164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Timer
   time: 300
-  runnin: 0
+  running: 0
   gameOver: {fileID: 1901467241}
   healthBar: {fileID: 168139874}
 --- !u!1 &1596040926

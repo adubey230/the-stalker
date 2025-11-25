@@ -18,7 +18,8 @@ public class Dialogue : MonoBehaviour
 
     [SerializeField] private TimelineAsset openStalker;
     [SerializeField] private TimelineAsset endStalker;
-    
+
+    [SerializeField] private Timer timer;
 
     private PlayableDirector director; // for stalker audio
     private AudioSource elisaAudio;
@@ -120,6 +121,7 @@ public class Dialogue : MonoBehaviour
         director = GetComponent<PlayableDirector>();
         elisaAudio = GetComponent<AudioSource>();
 
+        timer.PauseTimer();
 
         director.playableAsset = openStalker;
         lines = beginStalkerLines;
@@ -143,6 +145,7 @@ public class Dialogue : MonoBehaviour
         {
             subtite_text.text = lines[i];
             StalkerAudioPlaying = true;
+            timer.PauseTimer();
             //player can't move
         }
         else
@@ -150,6 +153,7 @@ public class Dialogue : MonoBehaviour
             dialoguebox.SetActive(false);
             director.Stop();
             StalkerAudioPlaying = false;
+            timer.UnpauseTimer();
             //play can move again
         }
 
