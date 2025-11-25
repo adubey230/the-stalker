@@ -12,6 +12,7 @@ public class InteractableUI : MonoBehaviour, Iinteractable
     };
     public CanvasUI interactable;
     private bool bCanvasActive;
+    private bool CanInteract;
     IEnumerator Init()
     {
         yield return null;
@@ -26,18 +27,21 @@ public class InteractableUI : MonoBehaviour, Iinteractable
 
     public bool Interact()
     {
-        if (bCanvasActive)
-        {
-            CloseUI();
-            bCanvasActive = false;
-            return false;
+        if(CanInteract){
+            if (bCanvasActive)
+            {
+                CloseUI();
+                bCanvasActive = false;
+                return false;
+            }
+            else
+            {
+                bCanvasActive = true;
+                OpenUI();
+                return true;
+            }
         }
-        else
-        {
-            bCanvasActive = true;
-            OpenUI();
-            return true;
-        }
+        return false;
 }
 
     public void CloseUI()
@@ -53,5 +57,17 @@ public class InteractableUI : MonoBehaviour, Iinteractable
         {
             LocatorDialogue.Instance.DialogueScript.SawClueBoard = true;
         }
+    }
+     public bool GetCanvasActive(){
+        return bCanvasActive;
+
+    }
+    public bool GetCanInteract(){
+        return CanInteract;
+
+    }
+    public void SetCanInteract(bool boolean){
+        CanInteract = boolean;
+        
     }
 }
