@@ -15,6 +15,7 @@ public class StartManager : MonoBehaviour
     [SerializeField] private AudioClip clip;
 
     private float timer = 0f;
+    private float timer2 = 0f;
     private bool highlight = true;
     private int i = 0;
 
@@ -44,16 +45,22 @@ public class StartManager : MonoBehaviour
             timer = 0f;
         }
 
-        if(Keyboard.current.eKey.wasPressedThisFrame)
+        if(reply1.off || replyHigh2.off)
         {
-            i += 1;
-            if(i < frames.Count)
+            timer2 += Time.deltaTime;
+            if(timer2 >= 2f)
             {
-                frames[i].SetActive(true);
-            }
-            else
-            {
-                SceneManager.LoadScene(1);
+                i++;
+                if(i < frames.Count)
+                {
+                    frames[i].SetActive(true);
+                }
+                else
+                {
+                    SceneManager.LoadScene(1);
+                }
+
+                timer2 = 0f;
             }
         }
     }
