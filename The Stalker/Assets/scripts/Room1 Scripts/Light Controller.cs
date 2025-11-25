@@ -9,6 +9,7 @@ public class LightController : MonoBehaviour, Iinteractable
     [SerializeField] public float current_flicker_time;
 
     private bool isOf;
+    private bool isOffPerm;
 
     [SerializeField] private GameObject lightOff;
     [SerializeField] private GameObject lightOn;
@@ -16,6 +17,8 @@ public class LightController : MonoBehaviour, Iinteractable
     [SerializeField] private Animator _animator;
     [SerializeField] private AudioSource _flickerSound;
     [SerializeField] private AudioSource _switchSound;
+    [SerializeField] private InteractableUI _clock;
+    [SerializeField] private InteractableUI _clueboard;
 
     [SerializeField] public Light2D SpotLight2D;
     [SerializeField] public Light2D GlobaLight2D;
@@ -149,6 +152,11 @@ public class LightController : MonoBehaviour, Iinteractable
         lightOn.SetActive(true);
         _animator.SetBool("isOn", true);
         _flickerSound.Play();
+        if (time < max_time * 0.40){
+            _clock.SetCanInteract(true);
+            _clueboard.SetCanInteract(true);
+
+        }
     }
     //turns the lights off
     public void turnLightsOff()
@@ -162,6 +170,18 @@ public class LightController : MonoBehaviour, Iinteractable
             current_flicker_time = Random.Range(0.5f, 1f);
         }
         //flicker_time += 0.05f;
+        if(time < max_time * 0.40 ){
+            if(_clock.GetCanvasActive()){
+                _clock.CloseUI();
+
+            }
+            if(_clueboard.GetCanvasActive()){
+                _clueboard.CloseUI();
+
+            }
+            _clock.SetCanInteract(false);
+            _clueboard.SetCanInteract(false);
+        }
         
         lightOn.SetActive(false);
         lightOff.SetActive(true);
@@ -169,6 +189,10 @@ public class LightController : MonoBehaviour, Iinteractable
         _flickerSound.Stop();
 
         isOf = true;
+    }
+    public bool GetIsOffPerm(){
+        return isOffPerm;
+
     }
 
 }
