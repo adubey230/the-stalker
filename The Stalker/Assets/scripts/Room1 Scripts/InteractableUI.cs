@@ -22,6 +22,7 @@ public class InteractableUI : MonoBehaviour, Iinteractable
     {
         StartCoroutine(Init());
         bCanvasActive = false;
+        CanInteract = true;
         interactable.theCanvas.SetActive(bCanvasActive);
     }
 
