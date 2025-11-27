@@ -66,6 +66,7 @@ public class StartManager : MonoBehaviour
 
         if(reply1.off || replyHigh2.off)
         {
+            notif.SetActive(false);
             timer2 += Time.deltaTime;
             if(timer2 >= 2f)
             {
