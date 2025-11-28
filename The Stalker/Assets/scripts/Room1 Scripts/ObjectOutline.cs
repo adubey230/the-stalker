@@ -6,6 +6,7 @@ public class ObjectOutline : MonoBehaviour
     private SpriteRenderer _parentSpriteRenderer;
     private Collider2D _collider;
     [SerializeField] private Material[] _materials;
+    private LightController _lightController;
     private enum MaterialType{Outline = 0, NonOutline = 1}
     public bool isShaderConstructed = true;
 
@@ -14,6 +15,7 @@ public class ObjectOutline : MonoBehaviour
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _parentSpriteRenderer = GetComponentInParent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+        _lightController = FindFirstObjectByType<LightController>();
     }
     public void SetOutlineActive()
     {
@@ -58,5 +60,26 @@ public class ObjectOutline : MonoBehaviour
         {
             _collider.enabled = false;
         }
+    }
+
+    private void Update()
+    {
+        if (_lightController == null)
+        {
+            enabled = false;
+            return;
+        }
+
+        if (_lightController.GetIsOff())
+        {
+            _collider.enabled = false;
+        }
+        else
+        {
+            _collider.enabled = true;
+        }
+        
+        
+        
     }
 }

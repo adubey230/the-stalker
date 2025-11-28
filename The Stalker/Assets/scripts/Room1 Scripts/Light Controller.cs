@@ -10,6 +10,7 @@ public class LightController : MonoBehaviour, Iinteractable
 
     private bool isOf;
     private bool isOffPerm;
+    private bool _lessThan40Percent = false;
 
     [SerializeField] private GameObject lightOff;
     [SerializeField] private GameObject lightOn;
@@ -19,6 +20,7 @@ public class LightController : MonoBehaviour, Iinteractable
     [SerializeField] private AudioSource _switchSound;
     [SerializeField] private InteractableUI _clock;
     [SerializeField] private InteractableUI _clueboard;
+    [SerializeField] private Player player;
 
     [SerializeField] public Light2D SpotLight2D;
     [SerializeField] public Light2D GlobaLight2D;
@@ -54,9 +56,18 @@ public class LightController : MonoBehaviour, Iinteractable
             randomTurnOn(time, max_time);
         }
         // if the current time is in between 20% of max time and 40% of max time then the light turns off at a set time between 15 to 30 seconds
-        else if (time > max_time * 0.2 && time < max_time * 0.40 && isOf == true && current_flicker_time <= 0f)
+        else if (time > max_time * 0.2 && time < max_time * 0.40 && isOf &&
+                 current_flicker_time <= 0f)
         {
             turnLightsOn();
+        }
+        
+
+        if (time < max_time * 0.4f && time > max_time * .39f && _lessThan40Percent == false)
+        {
+            turnLightsOff();
+            Debug.Log("time reached 40% of max time");
+            _lessThan40Percent = true;
         }
         //decreases flicker timer
         current_flicker_time -= Time.deltaTime;
@@ -77,9 +88,8 @@ public class LightController : MonoBehaviour, Iinteractable
     //turns light on and off
     public bool Interact()
     {
-       
         Debug.Log("Called Interact() from LightController");
-        if (isOf == true && time < max_time * 0.40 )
+        if (isOf && time < max_time * 0.40 )
         {
             _switchSound.Play();
             Debug.Log("Light Switch turned on");
@@ -88,13 +98,6 @@ public class LightController : MonoBehaviour, Iinteractable
                 cooldown = 15f;
             }
             turnLightsOn();
-        }
-        else if (isOf == false && time < max_time * 0.40)
-        {
-             _switchSound.Play();
-            Debug.Log("Light Switch turned off");
-            player_turn_off = true;
-            turnLightsOff();
         }
 
         return false;
@@ -118,6 +121,7 @@ public class LightController : MonoBehaviour, Iinteractable
         {
             randInt = Random.Range(0f, time);
         }
+
         if (randInt < threshold)
         {
             player_turn_off = false;
@@ -131,12 +135,11 @@ public class LightController : MonoBehaviour, Iinteractable
     // does the opposite of the previous function. Determines random time for light to turn back on again
     public void randomTurnOn(float time, float max_time)
     {
-        float threshold = max_time * 0.35f;
+        float threshold = max_time * 0.40f;
         float randInt = Random.Range(0f, time);
         if (randInt > threshold)
         {
             turnLightsOn();
-
         }
 
     }
@@ -150,25 +153,29 @@ public class LightController : MonoBehaviour, Iinteractable
         
         lightOff.SetActive(false);
         lightOn.SetActive(true);
-        _animator.SetBool("isOn", true);
-        _flickerSound.Play();
-        if (time < max_time * 0.40){
+
+        if (time < max_time * 0.40f)
+        {
+            _animator.SetBool("isOn", true);
             _clock.SetCanInteract(true);
             _clueboard.SetCanInteract(true);
-
         }
+
+        _flickerSound.Play();
+
     }
     //turns the lights off
     public void turnLightsOff()
     {
         SpotLight2D.intensity = 0;
         GlobaLight2D.intensity = 0.07f;
-        if(time > max_time * 0.2 && time < max_time * 0.40){
-        current_flicker_time = Random.Range(15f, 30f);
+        if(time > max_time * 0.2 && time < max_time * 0.40){ 
+            current_flicker_time = Random.Range(15f, 30f);
         }
         else{
             current_flicker_time = Random.Range(0.5f, 1f);
         }
+        
         //flicker_time += 0.05f;
         if(time < max_time * 0.40 ){
             if(_clock.GetCanvasActive()){
@@ -181,11 +188,12 @@ public class LightController : MonoBehaviour, Iinteractable
             }
             _clock.SetCanInteract(false);
             _clueboard.SetCanInteract(false);
+            player.SetUiOpenFalse();
+            _animator.SetBool("isOn", false);
         }
         
         lightOn.SetActive(false);
         lightOff.SetActive(true);
-        _animator.SetBool("isOn", false);
         _flickerSound.Stop();
 
         isOf = true;
@@ -193,6 +201,11 @@ public class LightController : MonoBehaviour, Iinteractable
     public bool GetIsOffPerm(){
         return isOffPerm;
 
+    }
+
+    public bool GetIsOff()
+    {
+        return isOf;
     }
 
 }
