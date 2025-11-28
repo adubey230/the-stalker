@@ -1,32 +1,70 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPointerDownHandler
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     [Header("Root Canvas containing the desk")]
     [SerializeField] Canvas canvas;
-
+    
+    [Header("Desk Bounds")]
+    [SerializeField] private PolygonCollider2D deskBoundsCollider;
+    
     [Header("Details page")]
     public GameObject details;
     private Image image;
     private RectTransform clue;
 
     private bool isDragging = false;
+    private Vector2 lastValidPosition;
+    
     private void Start()
     {
         clue = GetComponent<RectTransform>();
         image = GetComponent<Image>();
+        lastValidPosition = clue.anchoredPosition;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         isDragging = true;
-        clue.anchoredPosition += eventData.delta / canvas.scaleFactor;
+    
+        Vector2 newPosition = clue.anchoredPosition + eventData.delta / canvas.scaleFactor;
+    
+        // Always update position during drag
+        clue.anchoredPosition = newPosition;
+    
+        // Check if we're out of bounds
+        if (IsPositionInDeskBounds(newPosition))
+        {
+            lastValidPosition = newPosition;
+        }
+        else
+        {
+            // If out of bounds, snap back to last valid position
+            clue.anchoredPosition = lastValidPosition;
+        }
+    
         Debug.Log("Is dragging");
+    }
+    
+    private bool IsPositionInDeskBounds(Vector2 anchoredPos)
+    {
+        if (deskBoundsCollider == null)
+            return true;
+    
+        // Temporarily set position to test it
+        Vector2 originalPos = clue.anchoredPosition;
+        clue.anchoredPosition = anchoredPos;
+    
+        Vector3 worldPos = clue.TransformPoint(Vector3.zero);
+        bool isInBounds = deskBoundsCollider.OverlapPoint(worldPos);
+    
+        // Restore original position
+        clue.anchoredPosition = originalPos;
+    
+        return isInBounds;
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -42,7 +80,7 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         details.SetActive(true);
         if (this.name == "Calendar")
         {
-            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that’s my birthday.", 0);
+            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
         }
         else if (this.name == "ResignationLetter")
         {
@@ -63,7 +101,6 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         details.SetActive(true);
         image.enabled = false;
         image.raycastTarget = false;
-    
     }
     
     public void CloseClue()
@@ -72,5 +109,4 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         image.enabled = true;
         image.raycastTarget = true;
     }
-
 }
