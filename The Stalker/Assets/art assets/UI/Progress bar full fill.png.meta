@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ab981300016ca40e7aacd67e9676f9ca
+guid: 6b79af85c6309d348b1fc3a7308669c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -240796386590628577
-    second: Progress bar_0
+      213: 1135154873175153363
+    second: Progress bar full fill_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,29 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Progress bar_0
+      name: Progress bar full fill_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
-        width: 664
-        height: 31
+        width: 656
+        height: 27
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 8, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
-      outline:
-      - - {x: -326, y: 3.5}
-        - {x: -293, y: -4.5}
-        - {x: 292, y: -5.5}
-        - {x: 325, y: 4.5}
-        - {x: 292, y: 13.5}
-        - {x: -290, y: 13.5}
+      outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f15611256f488acf0800000000000000
-      internalID: -240796386590628577
+      spriteID: 3da98a4c751e0cf00800000000000000
+      internalID: 1135154873175153363
       vertices: []
       indices: 
       edges: []
@@ -144,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 7b374b1fdad347c41baf295932c93485
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -152,11 +146,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries:
-      - key: SpriteEditor.SliceSettings
-        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+      entries: []
     nameFileIdTable:
-      Progress bar_0: -240796386590628577
+      Progress bar full fill_0: 1135154873175153363
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
