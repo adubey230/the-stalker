@@ -5056,6 +5056,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 530504660}
   m_CullTransparentMesh: 1
+--- !u!1 &542745057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 542745058}
+  - component: {fileID: 542745059}
+  m_Layer: 5
+  m_Name: DeskManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &542745058
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542745057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945508391}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &542745059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542745057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49411e40ed8b4003adffca9ccf241f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeskManager
+  cluePaperInfos:
+  - name: Calendar
+    paper: {fileID: 1098113005}
+  - name: Note
+    paper: {fileID: 1625716707}
+  - name: ResignationLetter
+    paper: {fileID: 2137741978}
 --- !u!1 &545315203
 GameObject:
   m_ObjectHideFlags: 0
@@ -8948,6 +9003,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 542745058}
   - {fileID: 406954163}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -71.053}
@@ -10270,9 +10326,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ebc362199764a478738424cf4fb7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskPapers
+  name: Calendar
   canvas: {fileID: 945508390}
   deskBoundsCollider: {fileID: 406954166}
   details: {fileID: 592140782}
+  clueOpenManager: {fileID: 542745059}
 --- !u!114 &1098113006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10332,13 +10390,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098113004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.002724835, y: -0.009303546, z: -0.17848712, w: 0.98389447}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 406954163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.498, y: -0.993, z: -20.56}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 231, y: 111}
@@ -16468,8 +16526,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1039.274}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 27}
-  m_SizeDelta: {x: 68.3799, y: 101.3058}
+  m_AnchoredPosition: {x: -124.2, y: 49.7}
+  m_SizeDelta: {x: 93.5278, y: 140.6639}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1625716706
 MonoBehaviour:
@@ -16497,9 +16555,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ebc362199764a478738424cf4fb7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskPapers
+  name: Note
   canvas: {fileID: 945508390}
   deskBoundsCollider: {fileID: 406954166}
   details: {fileID: 1351078789}
+  clueOpenManager: {fileID: 542745059}
 --- !u!114 &1625716708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20162,13 +20222,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137741975}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.06782705, y: 0.12246974, z: 0.24718511, w: 0.95880145}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 406954163}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 3.986, y: 15.607, z: 29.459}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 8, y: 64.809}
@@ -20200,9 +20260,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17ebc362199764a478738424cf4fb7d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeskPapers
+  name: ResignationLetter
   canvas: {fileID: 945508390}
   deskBoundsCollider: {fileID: 406954166}
   details: {fileID: 1341623513}
+  clueOpenManager: {fileID: 542745059}
 --- !u!114 &2137741979
 MonoBehaviour:
   m_ObjectHideFlags: 0

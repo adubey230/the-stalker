@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -5,6 +6,8 @@ using UnityEngine.UI;
 
 public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPointerDownHandler
 {
+    [Header("Name of the Paper")] 
+    [SerializeField] private String name;
     [Header("Root Canvas containing the desk")]
     [SerializeField] Canvas canvas;
     
@@ -13,6 +16,9 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
     
     [Header("Details page")]
     public GameObject details;
+    
+    [Header("Desk Manager")]
+    [SerializeField] private ClueOpenManager clueOpenManager;
     private Image image;
     private RectTransform clue;
 
@@ -77,7 +83,7 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         }
 
         image.color = Color.white;
-        details.SetActive(true);
+        OpenClue();
         if (this.name == "Calendar")
         {
             LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
@@ -101,6 +107,8 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         details.SetActive(true);
         image.enabled = false;
         image.raycastTarget = false;
+        Debug.Log("OpenClue Called");
+        clueOpenManager.DisableOtherPaperRaycastTarget(name);
     }
     
     public void CloseClue()
@@ -108,5 +116,6 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         details.SetActive(false);
         image.enabled = true;
         image.raycastTarget = true;
+        clueOpenManager.EnableAllPaperRaycastTarget();
     }
 }
