@@ -25,7 +25,7 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
     private bool isDragging = false;
     private Vector2 lastValidPosition;
     
-    private void Start()
+    protected virtual void Start()
     {
         clue = GetComponent<RectTransform>();
         image = GetComponent<Image>();
@@ -55,7 +55,7 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         Debug.Log("Is dragging");
     }
     
-    private bool IsPositionInDeskBounds(Vector2 anchoredPos)
+    protected bool IsPositionInDeskBounds(Vector2 anchoredPos)
     {
         if (deskBoundsCollider == null)
             return true;
@@ -96,7 +96,7 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         Debug.Log("Mouse click let go");
     }
 
-    public void OnPointerDown(PointerEventData eventdata)
+    public virtual void OnPointerDown(PointerEventData eventdata)
     {
         Debug.Log("Mouse click down");
         image.color = Color.black;

@@ -1,11 +1,11 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PaperClueBoard : MonoBehaviour,
-IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class PaperClueBoard : DeskPapers,
+IPointerDownHandler, IBeginDragHandler, IDragHandler
 {
-    [SerializeField] private Canvas canvas;
     [SerializeField] private AudioSource _paperSound;
     private RectTransform rectTransform;
 
@@ -13,13 +13,6 @@ IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
     {
         rectTransform = GetComponent<RectTransform>();
         randomizeCluePos();
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        //Debug.Log("onDrag");
-        //When an item gets dragged, it moves along with the mouse to the scale of the canvas screen
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
     }
         
     public void OnBeginDrag(PointerEventData eventData)
@@ -30,16 +23,11 @@ IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
             LocatorDialogue.Instance.DialogueScript.ShowElisaText("That picture… Why does he have that?", 0);
         }
     }
-
-    //last one
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        //Debug.Log("OnEndDrag");
-    }
     
-    public void OnPointerDown(PointerEventData eventData)
+    
+    public override void OnPointerDown(PointerEventData eventData)
     {
+        base.OnPointerDown(eventData);
        _paperSound.Play();
     }
 
