@@ -159,6 +159,7 @@ public class LightController : MonoBehaviour, Iinteractable
             _animator.SetBool("isOn", true);
             _clock.SetCanInteract(true);
             _clueboard.SetCanInteract(true);
+            isOffPerm = false;
         }
 
         _flickerSound.Play();
@@ -190,6 +191,7 @@ public class LightController : MonoBehaviour, Iinteractable
             _clueboard.SetCanInteract(false);
             player.SetUiOpenFalse();
             _animator.SetBool("isOn", false);
+            isOffPerm = true;
         }
         
         lightOn.SetActive(false);

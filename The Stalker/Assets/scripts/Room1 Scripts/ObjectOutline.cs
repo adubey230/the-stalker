@@ -70,7 +70,7 @@ public class ObjectOutline : MonoBehaviour
             return;
         }
 
-        if (_lightController.GetIsOff())
+        if (_lightController.GetIsOffPerm())
         {
             _collider.enabled = false;
         }
