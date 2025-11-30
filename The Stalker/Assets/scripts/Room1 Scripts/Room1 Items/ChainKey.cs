@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChainKey : MonoBehaviour, Iinteractable
+public class ChainKey : MonoBehaviour, Iinteractable // Doesn't inherit from Item because it never actually gets added to inv
 {
 
     public ChainConstraint chainConstraint;
@@ -8,7 +8,7 @@ public class ChainKey : MonoBehaviour, Iinteractable
     [SerializeField] private LightController _light;
     public bool Interact() 
     {
-        Debug.Log("using chain key");
+        // Debug.Log("using chain key");
 
         chainConstraint.BreakChain();
         LocatorDialogue.Instance.DialogueScript.PlayStalkerEndLines();
@@ -18,6 +18,6 @@ public class ChainKey : MonoBehaviour, Iinteractable
         _light.enabled = false;
 
         gameObject.SetActive(false);
-        return true; // item is consumed on use
+        return false; // UI is not open, so set to false
     }
 }

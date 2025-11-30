@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
     private ChainConstraint chain;
     private List<Iinteractable> _interactables = new  List<Iinteractable>();
     private Iinteractable currentInteractable;
-    private bool _bUIOpened = false;
+    [SerializeField] private bool _bUIOpened = false;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
         inventoryAction = actionMap.FindAction("Inventory");
         walkSpeed=charSpeed;
         //DontDestroyOnLoad(gameObject);
+
+        inventoryManager = InventoryManager.Instance;
     }
 
     private void OnEnable()
@@ -179,7 +181,7 @@ public class Player : MonoBehaviour
                 _sprite.sortingOrder = 7;
             }
         }
-
+       
     }
 
     public void SetUIOpenTrue()
