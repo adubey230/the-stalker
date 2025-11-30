@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LightController _lightControl;
     [SerializeField] private Timer _time;
+
+    //clueboard ui
+    [SerializeField] private List<GameObject> clues;
+    [SerializeField] private GameObject panel;
+    private bool isActive = false;
     private bool hasChangedAudio = false; 
     private bool _track1isPlaying;
 
@@ -76,6 +82,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool CheckClues()
+    {
+        for(int i = 0; i < clues.Count; i++)
+        {
+            if(clues[i].activeSelf)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     void Update()
     {
         if(_time.time <= time * 0.3f)
@@ -86,6 +105,15 @@ public class GameManager : MonoBehaviour
                 ChangeAudio(_bgClipFast);
             }
             
+        }
+
+        if(CheckClues())
+        {
+            panel.SetActive(true);
+        }
+        else
+        {
+            panel.SetActive(false);
         }
     }
     
