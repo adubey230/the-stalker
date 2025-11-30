@@ -13,6 +13,9 @@ TagManager:
   - Canvas Interactable
   - Interactable
   - Outline
+  - DialogueSingle
+  - book
+  - LightSwitch
   layers:
   - Default
   - TransparentFX

@@ -2,39 +2,28 @@ using UnityEngine;
 
 public class ObjectOutline : MonoBehaviour
 {
+    [SerializeField] private Sprite outlineSprite;
+    [SerializeField] private Sprite originalSprite;
     private SpriteRenderer _spriteRenderer;
-    private SpriteRenderer _parentSpriteRenderer;
     private Collider2D _collider;
-    [SerializeField] private Material[] _materials;
     private LightController _lightController;
-    private enum MaterialType{Outline = 0, NonOutline = 1}
-    public bool isShaderConstructed = true;
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        _parentSpriteRenderer = GetComponentInParent<SpriteRenderer>();
+        _spriteRenderer = GetComponentInParent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
         _lightController = FindFirstObjectByType<LightController>();
+        
     }
-    public void SetOutlineActive()
+    private void SetOutlineActive()
     {
-        if (isShaderConstructed)
-        {
-            _parentSpriteRenderer.material = _materials[(int)MaterialType.Outline];
-            return;
-        }
-        _spriteRenderer.enabled = true;
+        _spriteRenderer.sprite = outlineSprite;
     }
 
-    public void SetOutlineInactive()
+    private void SetOutlineInactive()
     {
-        if (isShaderConstructed)
-        {
-            _parentSpriteRenderer.material = _materials[(int)MaterialType.NonOutline];
-            return;
-        }
-        _spriteRenderer.enabled = false;
+        
+        _spriteRenderer.sprite = originalSprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,20 +55,17 @@ public class ObjectOutline : MonoBehaviour
     {
         if (_lightController == null)
         {
-            enabled = false;
+            this.enabled = false;
             return;
         }
 
-        if (_lightController.GetIsOffPerm())
-        {
-            _collider.enabled = false;
-        }
-        else
+        if (_lightController.GetIsOffPerm() && gameObject.tag == "LightSwitch")
         {
             _collider.enabled = true;
         }
-        
-        
-        
+        else if (!_lightController.GetIsOffPerm() && gameObject.tag == "LightSwitch")
+        {
+            _collider.enabled = false;
+        }
     }
 }
