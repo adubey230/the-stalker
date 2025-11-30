@@ -92,6 +92,8 @@ public class InventoryManager : MonoBehaviour
             RemoveItem(item);
         }
         ToggleInventory();
+        
+       
     }
     public List<Item> GetInventory()
     {

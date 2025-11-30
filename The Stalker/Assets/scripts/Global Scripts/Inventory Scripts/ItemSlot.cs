@@ -11,8 +11,9 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public InventoryManager inventory;
     private Item item;
     [SerializeField] private Image icon;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private Image highlight;
     public bool hasItem;
+    
 
     private void Awake()
     {
@@ -24,13 +25,12 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (hasItem)
-            TooltipManager._instance.SetAndShowTooltip(item.description);
+        if (hasItem) highlight.gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        TooltipManager._instance.HideTooltip();
+        highlight.gameObject.SetActive(false);
     }
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -47,15 +47,14 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             item = inventory.GetInventory()[SlotID];
             icon.sprite = item.itemSpriteInv;
             icon.enabled = true;
-            text.text = item.itemName;
             hasItem = true;
         }
         else
         {
             icon.sprite = null;
             icon.enabled = false;
-            text.text = "";
             hasItem = false;
         }
+        highlight.gameObject.SetActive(false);
     }
 }

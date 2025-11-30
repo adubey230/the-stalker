@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class ChainKey : Item
+public class ChainKey : MonoBehaviour, Iinteractable
 {
 
     public ChainConstraint chainConstraint;
     public TargetJoint2D chainConnector;
     [SerializeField] private LightController _light;
-    public override bool UseItem() 
+    public bool Interact() 
     {
         Debug.Log("using chain key");
 
@@ -17,6 +17,7 @@ public class ChainKey : Item
         _light.turnLightsOff();
         _light.enabled = false;
 
+        gameObject.SetActive(false);
         return true; // item is consumed on use
     }
 }
