@@ -1,16 +1,17 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    private bool inventoryOpen;
+    [SerializeField] private bool inventoryOpen;
     [SerializeField] private List<Item> inventoryList = new List<Item>();
     [SerializeField] private Canvas inventoryUI;
     public static InventoryManager Instance;
 
-     
-    
+    public Animator animator;
+
     void Awake()
     {
         
@@ -32,9 +33,8 @@ public class InventoryManager : MonoBehaviour
     }
     void Start()
     {
-
-        inventoryOpen = false;
         inventoryUI.gameObject.SetActive(false);
+        inventoryOpen = false;
     }
 
     private void OnEnable()
@@ -50,12 +50,14 @@ public class InventoryManager : MonoBehaviour
     {
         if (inventoryOpen)
         {
-            inventoryUI.gameObject.SetActive(false);
+            animator.SetBool("IsOpen", false);
             inventoryOpen = false;
         }
         else
         {
+            inventoryUI.gameObject.SetActive(false);
             inventoryUI.gameObject.SetActive(true);
+            animator.SetBool("IsOpen", true);
             inventoryOpen = true;
         }
     }
