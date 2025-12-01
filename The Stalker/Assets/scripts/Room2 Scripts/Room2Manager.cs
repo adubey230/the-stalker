@@ -7,6 +7,10 @@ public class Room2Manager : MonoBehaviour
     [SerializeField] private float minY = -5f;
     [SerializeField] private float maxY = 5f;
     [SerializeField] private GameObject _player;
+    [SerializeField] private Timer _time;
+    [SerializeField] private Controls control;
+    private bool methodCalled = false;
+    private float time = 300f;
 
     void Update()
     {
@@ -16,5 +20,11 @@ public class Room2Manager : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         _player.transform.position = pos;
+
+        if(_time.time < time && !methodCalled)
+        {
+            methodCalled = true;
+            control.SetGameObjectActive();
+        }
     }
 }

@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private LightController _lightControl;
     [SerializeField] private Timer _time;
+    [SerializeField] private Controls control;
 
     //clueboard ui
     [SerializeField] private List<GameObject> clues;
@@ -21,6 +22,7 @@ public class GameManager : MonoBehaviour
     private bool isActive = false;
     private bool hasChangedAudio = false; 
     private bool _track1isPlaying;
+    private bool methodCalled = false;
 
     public static Action<Item> ItemPickedUp;
 
@@ -105,6 +107,12 @@ public class GameManager : MonoBehaviour
                 ChangeAudio(_bgClipFast);
             }
             
+        }
+
+        if(_time.time < time && !methodCalled)
+        {
+            methodCalled = true;
+            control.SetGameObjectActive();
         }
 
         if(CheckClues())
