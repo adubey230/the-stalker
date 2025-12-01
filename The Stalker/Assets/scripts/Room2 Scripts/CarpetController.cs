@@ -10,21 +10,22 @@ public class CarpetController : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Animator _animator;
     [SerializeField] private GameObject _trapDoor;
+    [SerializeField] private GameObject carpet;
+    [SerializeField] private GameObject spoon;
+    private bool playerOnCarpet = false;
 
     //when player steps on the carpet, sound will play
     void OnTriggerEnter2D(Collider2D collider)
     {
         _creakingSound.Play();
-        if(Keyboard.current.eKey.isPressed)
-        {
-            SetSolved();
-        }
+        playerOnCarpet = true;
     }
 
     //when player steps off the carpet, sound will stop
     void OnTriggerExit2D(Collider2D collider)
     {
         _creakingSound.Stop();
+        playerOnCarpet = false;
     }
 
     void FixedUpdate()
@@ -36,11 +37,21 @@ public class CarpetController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if(playerOnCarpet && Keyboard.current.eKey.wasPressedThisFrame)
+        {
+            carpet.SetActive(false);
+            SetSolved();
+            _trapDoor.SetActive(true);
+            spoon.SetActive(true);
+        }
+    }
+
     public void SetSolved()
     {
         //puzzleUnlocked = true;
         _animator.SetBool("solved", true);
-        _trapDoor.SetActive(true);
     }
 
 }
