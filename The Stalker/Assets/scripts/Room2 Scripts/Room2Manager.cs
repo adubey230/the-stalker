@@ -8,9 +8,17 @@ public class Room2Manager : MonoBehaviour
     [SerializeField] private float maxY = 5f;
     [SerializeField] private GameObject _player;
     [SerializeField] private Timer _time;
-    [SerializeField] private Controls control;
-    private bool methodCalled = false;
+    //audio
+    [SerializeField] private AudioSource _audioS;
+    [SerializeField] private AudioClip clip;
+
     private float time = 300f;
+
+    void Start()
+    {
+        _audioS.clip = clip;
+        _audioS.Play();
+    }
 
     void Update()
     {
@@ -20,11 +28,5 @@ public class Room2Manager : MonoBehaviour
         pos.y = Mathf.Clamp(pos.y, minY, maxY);
 
         _player.transform.position = pos;
-
-        if(_time.time < time && !methodCalled)
-        {
-            methodCalled = true;
-            control.SetGameObjectActive();
-        }
     }
 }
