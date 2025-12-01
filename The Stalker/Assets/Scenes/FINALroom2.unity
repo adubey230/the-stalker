@@ -4657,6 +4657,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a35eaf711fc6a42ae233810b5e7a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRoom2
+  SpoonStalkerLines: []
+  SpoonStalker: {fileID: 0}
+  stalker_text: {fileID: 1975820942}
+  stalker_dialoguebox: {fileID: 1795075616}
   elisaAudioClips:
   - {fileID: 8300000, guid: 86294cb984f0c3c44a88be2716a3007e, type: 3}
   - {fileID: 8300000, guid: 2cd13db473368cb49a1ec2f717fe5039, type: 3}
@@ -6357,7 +6361,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &591323630
 MonoBehaviour:
   m_ObjectHideFlags: 0
