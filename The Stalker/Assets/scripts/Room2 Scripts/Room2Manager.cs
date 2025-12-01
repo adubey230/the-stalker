@@ -17,6 +17,7 @@ public class Room2Manager : MonoBehaviour
     void Start()
     {
         _audioS.clip = clip;
+        _audioS.loop = true;
         _audioS.Play();
     }
 
