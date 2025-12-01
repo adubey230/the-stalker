@@ -10,6 +10,7 @@ public class BookShelfManager : MonoBehaviour
     [SerializeField] private Sprite completed;
     [SerializeField] private BotDoor _door;
     [SerializeField] private Player player;
+    public bool solved = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -53,6 +54,7 @@ public class BookShelfManager : MonoBehaviour
 
                 // set bool to true for trap door
                 _door.PlayerSolved();
+                solved = true;
 
 
             }

@@ -16,6 +16,9 @@ public class StartManager : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private AudioSource email;
     [SerializeField] private AudioClip ping;
+    [SerializeField] private float fadeDuration = 2f;
+    private bool fadingOut = false;
+    private float fadeTimer = 0f;
 
     private float timer = 0f;
     private float timer2 = 0f;
@@ -27,6 +30,7 @@ public class StartManager : MonoBehaviour
     void Start()
     {
         _audioS.clip = clip;
+        _audioS.loop = true;
         _audioS.Play();
     }
     void Update()
@@ -66,21 +70,33 @@ public class StartManager : MonoBehaviour
 
         if(reply1.off || replyHigh2.off)
         {
-            notif.SetActive(false);
-            timer2 += Time.deltaTime;
-            if(timer2 >= 2f)
+            if(reply1.off || replyHigh2.off)
             {
-                i++;
-                if(i < frames.Count)
+                notif.SetActive(false);
+                timer2 += Time.deltaTime;
+
+                // Gradually fade audio over all remaining frames
+                if(frames.Count > 0 && _audioS.isPlaying)
                 {
-                    frames[i].SetActive(true);
-                }
-                else
-                {
-                    SceneManager.LoadScene(1);
+                    float fadeProgress = (float)i / (frames.Count - 1); // 0 at start, 1 at last frame
+                    _audioS.volume = Mathf.Lerp(1f, 0f, fadeProgress);
                 }
 
-                timer2 = 0f;
+                if(timer2 >= 2f)
+                {
+                    i++;
+                    if(i < frames.Count)
+                    {
+                        frames[i].SetActive(true);
+                    }
+                    else
+                    {
+                        _audioS.Stop(); // Stop audio at the very last element
+                        SceneManager.LoadScene(1);
+                    }
+
+                    timer2 = 0f;
+                }
             }
         }
     }
