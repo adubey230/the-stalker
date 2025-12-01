@@ -961,7 +961,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 5
   m_Sprite: {fileID: 3833374882073892468, guid: 1710dd1f08ca147058b21c30282ca574, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1675,6 +1675,7 @@ MonoBehaviour:
   completed: {fileID: 5325910149317681760, guid: b8eb2e7038c80394ba733b47dd6da085, type: 3}
   _door: {fileID: 1314208290}
   player: {fileID: 1242973538}
+  books: {fileID: 456029985}
   solved: 0
 --- !u!1 &128633127
 GameObject:
@@ -2004,6 +2005,84 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 0
+--- !u!1 &165707886
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 165707887}
+  - component: {fileID: 165707888}
+  m_Layer: 0
+  m_Name: Collider2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &165707887
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165707886}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.24490747, w: 0.96954644}
+  m_LocalPosition: {x: 2.53, y: -3.98, z: 0}
+  m_LocalScale: {x: 0.46011004, y: 0.46011004, z: 0.46011004}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 28.353}
+--- !u!68 &165707888
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165707886}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 2.1346347, y: 1.619487}
+  - {x: -0.42501485, y: 1.6769245}
+  - {x: -2.5422084, y: 0.266127}
+  - {x: 1.9302219, y: 1.4764264}
+  - {x: 0.23632193, y: 0.3023532}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &171036288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2546,7 +2625,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4596,6 +4675,7 @@ GameObject:
   - component: {fileID: 456029981}
   - component: {fileID: 456029980}
   - component: {fileID: 456029984}
+  - component: {fileID: 456029985}
   m_Layer: 0
   m_Name: BookShelf
   m_TagString: Canvas Interactable
@@ -4731,7 +4811,7 @@ Transform:
   m_GameObject: {fileID: 456029979}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.91, y: 2.96, z: 0}
+  m_LocalPosition: {x: 1.96, y: 2.94, z: 0}
   m_LocalScale: {x: 0.3904143, y: 0.3904143, z: 0.3904143}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -4753,6 +4833,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ObjectOutline
   outlineSprite: {fileID: 9032960506585488005, guid: 2ab8aae6a0b2bbe488a496d1f588d0cc, type: 3}
   originalSprite: {fileID: -8174865062497381088, guid: c616c8a9edca482439a944bbe434eea6, type: 3}
+--- !u!114 &456029985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456029979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2049d239cc5947afbf251cf584ac620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Books
+  completed: {fileID: 5325910149317681760, guid: b8eb2e7038c80394ba733b47dd6da085, type: 3}
+  _door: {fileID: 1314208290}
+  _sprite: {fileID: 456029982}
+  player: {fileID: 1242973538}
+  booksehlf: {fileID: 114866247}
+  spoon: {fileID: 216995396}
+  light: {fileID: 1616929804}
+  collider: {fileID: 165707886}
 --- !u!1 &476807953
 GameObject:
   m_ObjectHideFlags: 0
@@ -7421,7 +7521,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038161635, y: 0.17778271}
   m_AnchorMax: {x: 0.97642314, y: 0.8776519}
-  m_AnchoredPosition: {x: -262.5, y: -2.4999962}
+  m_AnchoredPosition: {x: -262.5, y: -2.5}
   m_SizeDelta: {x: -513, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &728318807
@@ -11305,7 +11405,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4829532635316207111, guid: 650fe3a8c4b2f47d3a17e3c1c12fc7f3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -11326,7 +11426,7 @@ Transform:
   m_GameObject: {fileID: 1113711456}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.59, y: 1.69, z: 0}
+  m_LocalPosition: {x: 4.81, y: 1.49, z: 0}
   m_LocalScale: {x: 0.36978245, y: 0.40346608, z: 1.2256883}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15780,7 +15880,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 6
   m_Sprite: {fileID: 2720710497464253368, guid: f7566f8795d5fe54e8a30dc4ed23b246, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16869,8 +16969,6 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: df69af7ded14ad443bbe0196a9ae4fdf, type: 3}
   desk: {fileID: 406954162}
   panel: {fileID: 1205213224}
-  manager: {fileID: 114866252}
-  bookshelf: {fileID: 114866247}
 --- !u!4 &1589975030
 Transform:
   m_ObjectHideFlags: 0
@@ -17300,6 +17398,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1616364943}
   m_CullTransparentMesh: 1
+--- !u!1 &1616929804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1616929806}
+  - component: {fileID: 1616929805}
+  m_Layer: 0
+  m_Name: Spot Light 2D
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1616929805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616929804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.Light2D
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.5
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000419bcc1e
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 1
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0.3
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 360
+  m_PointLightOuterAngle: 360
+  m_PointLightInnerRadius: 1.3791047
+  m_PointLightOuterRadius: 8.249793
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: -0.5, z: 0}
+  - {x: 0.5, y: 0.5, z: 0}
+  - {x: -0.5, y: 0.5, z: 0}
+--- !u!4 &1616929806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616929804}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: -0.0051070033, w: 0.99998695}
+  m_LocalPosition: {x: 2.52, y: -3.38, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1646096371
 GameObject:
   m_ObjectHideFlags: 0
@@ -19850,7 +20032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.038161635, y: 0.17778271}
   m_AnchorMax: {x: 0.97642314, y: 0.8776519}
-  m_AnchoredPosition: {x: -262.5, y: -2.4999962}
+  m_AnchoredPosition: {x: -262.5, y: -2.5}
   m_SizeDelta: {x: -513, y: -13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1975820941
@@ -21515,9 +21697,11 @@ SceneRoots:
   - {fileID: 445176695}
   - {fileID: 1242973540}
   - {fileID: 1589975030}
+  - {fileID: 165707887}
   - {fileID: 1314208288}
   - {fileID: 788574424}
   - {fileID: 447123901}
   - {fileID: 216995399}
   - {fileID: 591323633}
   - {fileID: 1056200628}
+  - {fileID: 1616929806}

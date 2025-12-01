@@ -15,9 +15,6 @@ public class Room2Manager : MonoBehaviour
     [SerializeField] private GameObject desk;
     [SerializeField] private GameObject panel;
 
-    [SerializeField] private BookShelfManager manager;
-    [SerializeField] private GameObject bookshelf;
-
     private float time = 300f;
 
     void Start()
@@ -43,11 +40,6 @@ public class Room2Manager : MonoBehaviour
         else
         {
             panel.SetActive(false);
-        }
-
-        if(manager.solved)
-        {
-            bookshelf.SetActive(false);
         }
     }
 }

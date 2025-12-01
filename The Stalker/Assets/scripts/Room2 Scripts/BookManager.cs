@@ -10,6 +10,7 @@ public class BookShelfManager : MonoBehaviour
     [SerializeField] private Sprite completed;
     [SerializeField] private BotDoor _door;
     [SerializeField] private Player player;
+    [SerializeField] private Books books;
     public bool solved = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -47,14 +48,15 @@ public class BookShelfManager : MonoBehaviour
 
                 Debug.Log("Puzzle Solved!");
 
-                // set new sprite to book case
-                GameObject.Find("BookShelf").GetComponent<SpriteRenderer>().sprite = completed;
-                player.SetUiOpenFalse();
-                GameObject.Find("BookShelf").SetActive(false);
+                // // set new sprite to book case
+                // GameObject.Find("BookShelf").GetComponent<SpriteRenderer>().sprite = completed;
+                // player.SetUiOpenFalse();
+                // GameObject.Find("BookShelf").SetActive(false);
 
-                // set bool to true for trap door
-                _door.PlayerSolved();
-                solved = true;
+                // // set bool to true for trap door
+                // _door.PlayerSolved();
+
+                books.Solved();
 
 
             }
