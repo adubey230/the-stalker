@@ -4487,7 +4487,7 @@ PlayableDirector:
   m_GameObject: {fileID: 451209015}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: e7c7130baea6be34fa9b7f893f80d512, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 41953cbde2916cb45a0b5418dc04494c, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 0
@@ -4496,6 +4496,8 @@ PlayableDirector:
   - key: {fileID: 4401263163816199415, guid: e7c7130baea6be34fa9b7f893f80d512, type: 2}
     value: {fileID: 451209017}
   - key: {fileID: -8920725555342954600, guid: eeeb1835cefac3a468df0eaf5034a9d5, type: 2}
+    value: {fileID: 451209017}
+  - key: {fileID: -3371383507085286739, guid: 41953cbde2916cb45a0b5418dc04494c, type: 2}
     value: {fileID: 451209017}
   m_ExposedReferences:
     m_References: []
@@ -4657,8 +4659,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a35eaf711fc6a42ae233810b5e7a1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueRoom2
-  SpoonStalkerLines: []
-  SpoonStalker: {fileID: 0}
+  SpoonStalkerLines:
+  - Ah, I'd been looking for that.
+  - Funny thing is...
+  - I was going to gift it to you along with the book I wrote about it,
+  - but it looks like it found its owner
+  - the same way I found you.
+  SpoonStalker: {fileID: 11400000, guid: 41953cbde2916cb45a0b5418dc04494c, type: 2}
   stalker_text: {fileID: 1975820942}
   stalker_dialoguebox: {fileID: 1795075616}
   elisaAudioClips:
@@ -6361,7 +6368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &591323630
 MonoBehaviour:
   m_ObjectHideFlags: 0
