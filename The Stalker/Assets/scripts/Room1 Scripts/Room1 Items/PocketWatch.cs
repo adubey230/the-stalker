@@ -4,6 +4,14 @@ public class PocketWatch : Item
 {
     [SerializeField] private Timer timer;
     private const float BONUS_TIME = 30f;
+    
+    void Awake()
+    {
+        if (Application.isPlaying)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
     public override bool UseItem()
     {
         timer.time += BONUS_TIME;
