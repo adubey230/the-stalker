@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CarpetController : MonoBehaviour
 {
@@ -8,13 +9,16 @@ public class CarpetController : MonoBehaviour
     [SerializeField] private Transform _targetPosition;
     [SerializeField] private float speed;
     [SerializeField] private Animator _animator;
-    [SerializeField] private GameObject _bookShelf;
     [SerializeField] private GameObject _trapDoor;
 
     //when player steps on the carpet, sound will play
     void OnTriggerEnter2D(Collider2D collider)
     {
         _creakingSound.Play();
+        if(Keyboard.current.eKey.isPressed)
+        {
+            SetSolved();
+        }
     }
 
     //when player steps off the carpet, sound will stop
@@ -34,9 +38,8 @@ public class CarpetController : MonoBehaviour
 
     public void SetSolved()
     {
-        puzzleUnlocked = true;
+        //puzzleUnlocked = true;
         _animator.SetBool("solved", true);
-        _bookShelf.SetActive(false);
         _trapDoor.SetActive(true);
     }
 
