@@ -67,11 +67,11 @@ IPointerDownHandler, IBeginDragHandler, IDragHandler
             }
         }
 
-        for (int i = 0; i < clues.Length; i++)
-        {
-            clues[i].GetComponent<RectTransform>().position = spawnPoint[(int)shuffled.GetValue(i)].GetComponent<RectTransform>().position;
-            clues[i].GetComponent<RectTransform>().Rotate(0, 0, UnityEngine.Random.Range(-10f, 10));
-        }
+        // for (int i = 0; i < clues.Length; i++)
+        // {
+        //     clues[i].GetComponent<RectTransform>().position = spawnPoint[(int)shuffled.GetValue(i)].GetComponent<RectTransform>().position;
+        //     clues[i].GetComponent<RectTransform>().Rotate(0, 0, UnityEngine.Random.Range(-10f, 10));
+        // }
 
     }
 

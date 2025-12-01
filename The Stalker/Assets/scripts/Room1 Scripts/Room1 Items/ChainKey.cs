@@ -6,6 +6,8 @@ public class ChainKey : MonoBehaviour, Iinteractable // Doesn't inherit from Ite
     public ChainConstraint chainConstraint;
     public TargetJoint2D chainConnector;
     [SerializeField] private LightController _light;
+    [SerializeField] private Timer time;
+    [SerializeField] private GameObject healthBar;
     public bool Interact() 
     {
         // Debug.Log("using chain key");
@@ -16,6 +18,9 @@ public class ChainKey : MonoBehaviour, Iinteractable // Doesn't inherit from Ite
 
         _light.turnLightsOff();
         _light.enabled = false;
+
+        time.enabled = false;
+        healthBar.SetActive(false);
 
         gameObject.SetActive(false);
         return false; // UI is not open, so set to false
