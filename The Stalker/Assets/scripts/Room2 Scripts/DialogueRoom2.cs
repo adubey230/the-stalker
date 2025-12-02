@@ -25,7 +25,6 @@ public class DialogueRoom2 : MonoBehaviour
 
     //to toggle whether player can move or not
      public bool StalkerAudioPlaying {get; private set;}
-     public bool ElisaAudioPlaying {get; private set;}
 
 
 
@@ -47,9 +46,7 @@ public class DialogueRoom2 : MonoBehaviour
         stalker_dialoguebox.SetActive(false);
         director = GetComponent<PlayableDirector>();
         lines = SpoonStalkerLines;
-        ElisaAudioPlaying = false;
     }
-
     void Update()
     {
         if (i < lines.Length)
@@ -97,7 +94,6 @@ public class DialogueRoom2 : MonoBehaviour
         
         yield return new WaitForSeconds(sec);
         elisa_dialoguebox.SetActive(false);
-        ElisaAudioPlaying = false;
     }
     public void ShowElisaText(string dialogue, int audioIndex)
     {
@@ -107,7 +103,6 @@ public class DialogueRoom2 : MonoBehaviour
         //sets the audio to the corresponding audio
         elisaAudio.clip = elisaAudioClips[audioIndex];
         elisaAudio.Play();
-        ElisaAudioPlaying = true;
         //sets the text to the corresponding text
         elisa_text.text = dialogue;
 
