@@ -35,7 +35,7 @@ public class Vent_Inventory : PuzzleInteractable
         }
         else if(in_vent==false&&bCanvasActive==false){
 
-            if (!LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
+            if (!LocatorDialogue2.Instance.Dialogue2Script.ElisaAudioPlaying)
             {
                 LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("What can I use to open the vent?", 2);
             }
