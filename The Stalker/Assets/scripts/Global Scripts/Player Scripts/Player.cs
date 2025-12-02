@@ -88,8 +88,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         
-        Vector2 proposedVelocity = new Vector2(currentMoveInput.x * charSpeed, currentMoveInput.y * charSpeed);
-        rb.linearVelocity = chain.FilterMovement(proposedVelocity) * charSpeed; // when chain is not enabled, FIlterMovement returns proposedVelocity with no modifications
+        Vector2 proposedVelocity = new Vector2(currentMoveInput.x * walkSpeed, currentMoveInput.y * walkSpeed);
+        rb.linearVelocity = chain.FilterMovement(proposedVelocity) * walkSpeed; // when chain is not enabled, FIlterMovement returns proposedVelocity with no modifications
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -197,8 +197,16 @@ public class Player : MonoBehaviour
 
     public void Freeze(bool freezePlayer)
     {
-        if (freezePlayer) walkSpeed = 0;
-        else walkSpeed = charSpeed;
+        if (freezePlayer)
+        {
+            walkSpeed = 0;
+            _animator.enabled = false;
+        }
+        else
+        {
+            walkSpeed = charSpeed;
+            _animator.enabled = true;
+        }
     }
 
     public void SetGameOver(bool gameover)
