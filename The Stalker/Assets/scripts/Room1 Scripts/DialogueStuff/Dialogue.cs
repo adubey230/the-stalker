@@ -15,6 +15,7 @@ public class Dialogue : MonoBehaviour
     [SerializeField] private TMP_Text elisa_text; 
     [SerializeField] private GameObject dialoguebox;
     [SerializeField] private GameObject elisa_dialoguebox;
+    [SerializeField] private GameObject skip_button;
 
     [SerializeField] private TimelineAsset openStalker;
     [SerializeField] private TimelineAsset endStalker;
@@ -130,7 +131,7 @@ public class Dialogue : MonoBehaviour
         director.Play();
 
         
-
+    
         SawClueBoard = false;
         StalkerAudioPlaying = true;
         ElisaAudioPlaying = false;
@@ -211,6 +212,7 @@ public class Dialogue : MonoBehaviour
 
     public void PlayStalkerEndLines()
     {
+        skip_button.SetActive(false);
         director.playableAsset = endStalker; 
         director.time = 0;
         lines = endStalkerLines;
