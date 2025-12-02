@@ -97,6 +97,9 @@ public class InventoryManager : MonoBehaviour
         
        
     }
+    public bool GetInventoryOpen(){
+     return inventoryOpen;   
+    }
     public List<Item> GetInventory()
     {
         return inventoryList;

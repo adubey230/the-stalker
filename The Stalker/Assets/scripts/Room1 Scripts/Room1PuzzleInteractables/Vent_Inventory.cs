@@ -34,10 +34,12 @@ public class Vent_Inventory : PuzzleInteractable
             return true;
         }
         else if(in_vent==false&&bCanvasActive==false){
+            if(inventory.GetInventoryOpen()==false){
             inventory.ToggleInventory();
+            }
             in_vent=true;
             bCanvasActive=true;
-            return true;
+            return false;
         }
         else if(bCanvasActive==true){
             CloseUI();
