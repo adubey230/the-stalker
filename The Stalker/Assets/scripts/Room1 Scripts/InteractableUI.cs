@@ -46,7 +46,7 @@ public class InteractableUI : MonoBehaviour, Iinteractable
         {
             if (interactable.theCanvas.name == "CanvasClueBoard" && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
             {
-                LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 2);
+                LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 5);
             }
         }
         return false;

@@ -68,7 +68,7 @@ public class InventoryManager : MonoBehaviour
         if (item.name == "PocketWatch")
         {
             LocatorDialogue.Instance.DialogueScript.SawClueBoard = true;
-            //LocatorDialogue.Instance.DialogueScript.ShowElisaText("Would this increase my time?”, #)
+            LocatorDialogue.Instance.DialogueScript.ShowElisaText("Would this increase my time?", 6);
         }
         ToggleInventory();
     }
