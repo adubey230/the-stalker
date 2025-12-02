@@ -34,6 +34,8 @@ public class Vent_Inventory : PuzzleInteractable
             return true;
         }
         else if(in_vent==false&&bCanvasActive==false){
+            //LocatorDialogue.Instance.DialogueScript.ShowElisaText("What can I use to open the vent?", #)
+
             if(inventory.GetInventoryOpen()==false){
             inventory.ToggleInventory();
             }
