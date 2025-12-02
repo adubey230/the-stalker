@@ -84,14 +84,14 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
 
         image.color = Color.white;
         OpenClue();
-        if (this.name == "Calendar")
-        {
-            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
-        }
-        else if (this.name == "ResignationLetter")
-        {
-            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("A resignation letter?", 1);
-        }
+        // if (this.name == "Calendar")
+        // {
+        //     LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
+        // }
+        // else if (this.name == "ResignationLetter")
+        // {
+        //     LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("A resignation letter?", 1);
+        // }
         
         Debug.Log("Mouse click let go");
     }
@@ -109,6 +109,15 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         image.raycastTarget = false;
         Debug.Log("OpenClue Called");
         clueOpenManager.DisableOtherPaperRaycastTarget(name);
+
+        if (this.name == "Calendar")
+        {
+            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
+        }
+        else if (this.name == "ResignationLetter")
+        {
+            LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("A resignation letter?", 1);
+        }
     }
     
     public void CloseClue()

@@ -5671,8 +5671,6 @@ MonoBehaviour:
   cluePaperInfos:
   - name: Calendar
     paper: {fileID: 1098113005}
-  - name: Note
-    paper: {fileID: 0}
   - name: ResignationLetter
     paper: {fileID: 2137741978}
 --- !u!1 &545315203
@@ -14046,8 +14044,6 @@ GameObject:
   - component: {fileID: 1347026040}
   - component: {fileID: 1347026044}
   - component: {fileID: 1347026043}
-  - component: {fileID: 1347026042}
-  - component: {fileID: 1347026041}
   m_Layer: 5
   m_Name: WineClue
   m_TagString: Untagged
@@ -14074,37 +14070,6 @@ RectTransform:
   m_AnchoredPosition: {x: 51.60533, y: -54.479935}
   m_SizeDelta: {x: 42.8419, y: 54.6712}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1347026041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347026039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f192f87feadb23b46947fe1f36f830fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoverEnlarge
-  scaleFactor: 1.1
-  duration: 0.12
---- !u!114 &1347026042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347026039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17ebc362199764a478738424cf4fb7d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DeskPapers
-  name: Calendar
-  canvas: {fileID: 945508390}
-  deskBoundsCollider: {fileID: 406954166}
-  details: {fileID: 592140782}
-  clueOpenManager: {fileID: 542745059}
 --- !u!114 &1347026043
 MonoBehaviour:
   m_ObjectHideFlags: 0
