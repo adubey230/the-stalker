@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
 
     public static Action<Item> ItemPickedUp;
 
-    private float time = 300f;
+    private float time = 400f;
     public void TurnOffClockCanvas()
     {
         clock.SetActive(false);
@@ -113,6 +113,7 @@ public class GameManager : MonoBehaviour
         {
             methodCalled = true;
             control.SetGameObjectActive();
+            Debug.Log("active");
         }
 
         if(CheckClues())
