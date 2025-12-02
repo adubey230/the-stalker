@@ -4739,6 +4739,7 @@ MonoBehaviour:
   elisaAudioClips:
   - {fileID: 8300000, guid: 86294cb984f0c3c44a88be2716a3007e, type: 3}
   - {fileID: 8300000, guid: 2cd13db473368cb49a1ec2f717fe5039, type: 3}
+  - {fileID: 8300000, guid: f4b91a0316f9591499faf53a77638096, type: 3}
   elisa_text: {fileID: 1645996723}
   elisa_dialoguebox: {fileID: 1181554932}
 --- !u!1 &456029979
