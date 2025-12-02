@@ -36,6 +36,7 @@ public class Dialogue : MonoBehaviour
     
     public bool SawClueBoard {get; set;}
     public bool StalkerAudioPlaying {get; private set;}
+    public bool ElisaAudioPlaying {get; private set;}
 
 
     /*
@@ -128,11 +129,11 @@ public class Dialogue : MonoBehaviour
         //move if needed
         director.Play();
 
-
         
 
         SawClueBoard = false;
         StalkerAudioPlaying = true;
+        ElisaAudioPlaying = false;
 
         //through this way, there seems to be a delay :(
         //introAudio.Play();
@@ -174,6 +175,7 @@ public class Dialogue : MonoBehaviour
         
         yield return new WaitForSeconds(sec);
         elisa_dialoguebox.SetActive(false);
+        ElisaAudioPlaying = false;
     }
     public void ShowElisaText(string dialogue, int audioIndex)
     {
@@ -183,6 +185,7 @@ public class Dialogue : MonoBehaviour
         //sets the audio to the corresponding audio
         elisaAudio.clip = elisaAudioClips[audioIndex];
         elisaAudio.Play();
+        ElisaAudioPlaying = true;
         //sets the text to the corresponding text
         elisa_text.text = dialogue;
 

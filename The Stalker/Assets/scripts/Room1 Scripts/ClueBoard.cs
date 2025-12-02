@@ -18,7 +18,7 @@ IPointerDownHandler, IBeginDragHandler, IDragHandler
     public void OnBeginDrag(PointerEventData eventData)
     {
         //Debug.Log("OnBeginDrag");
-        if (this.name == "EscapeImage")
+        if (this.name == "EscapeImage" && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
         {
             LocatorDialogue.Instance.DialogueScript.ShowElisaText("That picture… Why does he have that?", 0);
         }

@@ -166,6 +166,7 @@ public class LightController : MonoBehaviour, Iinteractable
 
         _flickerSound.Play();
 
+
     }
     //turns the lights off
     public void turnLightsOff()
@@ -201,11 +202,6 @@ public class LightController : MonoBehaviour, Iinteractable
         _flickerSound.Stop();
 
         isOf = true;
-
-        if (isOf && time < max_time * 0.40)
-        {
-            LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 2);
-        }
        
 
     }

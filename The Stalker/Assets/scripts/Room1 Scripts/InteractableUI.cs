@@ -42,6 +42,13 @@ public class InteractableUI : MonoBehaviour, Iinteractable
                 return true;
             }
         }
+        else
+        {
+            if (interactable.theCanvas.name == "CanvasClueBoard" && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
+            {
+                LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 2);
+            }
+        }
         return false;
 }
 
@@ -59,7 +66,7 @@ public class InteractableUI : MonoBehaviour, Iinteractable
         //     LocatorDialogue.Instance.DialogueScript.SawClueBoard = true;
         // }
 
-        if (interactable.theCanvas.name == "BigPocketWatchClue")
+        if (interactable.theCanvas.name == "BigPocketWatchClue" && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
         {
             if (LocatorDialogue.Instance.DialogueScript.SawClueBoard)
             {
@@ -70,6 +77,7 @@ public class InteractableUI : MonoBehaviour, Iinteractable
                 LocatorDialogue.Instance.DialogueScript.ShowElisaText("A pocket watch? I wonder what it does…", 2);
             }
         }
+        
         
     }
      public bool GetCanvasActive(){
