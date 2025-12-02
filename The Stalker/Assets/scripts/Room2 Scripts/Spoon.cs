@@ -22,7 +22,11 @@ public class Spoon : MonoBehaviour
     {
         if(touchingSpoon && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            LocatorDialogue2.Instance.Dialogue2Script.PlayStalkerSpponLines();
+            if (!LocatorDialogue2.Instance.Dialogue2Script.StalkerAudioPlaying)
+            {
+                LocatorDialogue2.Instance.Dialogue2Script.PlayStalkerSpoonLines();
+            }
+            
             button.onClick.AddListener(CloseDialog); 
         }
     }

@@ -42,6 +42,7 @@ public class DialogueRoom2 : MonoBehaviour
         elisa_dialoguebox.SetActive(false);
         elisaAudio = GetComponent<AudioSource>();
 
+        StalkerAudioPlaying = false;
         stalker_dialoguebox.SetActive(false);
         director = GetComponent<PlayableDirector>();
         lines = SpoonStalkerLines;
@@ -51,7 +52,7 @@ public class DialogueRoom2 : MonoBehaviour
         if (i < lines.Length)
         {
             stalker_text.text = lines[i];
-            StalkerAudioPlaying = true;
+            //StalkerAudioPlaying = true;
            // timer.PauseTimer();
             //player can't move
         }
@@ -72,8 +73,9 @@ public class DialogueRoom2 : MonoBehaviour
     }
 
 
-    public void PlayStalkerSpponLines()
+    public void PlayStalkerSpoonLines()
     {
+        StalkerAudioPlaying = true;
         director.playableAsset = SpoonStalker; 
         director.time = 0;
         lines = SpoonStalkerLines;
