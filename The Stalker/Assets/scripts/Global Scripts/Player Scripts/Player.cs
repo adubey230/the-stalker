@@ -37,8 +37,8 @@ public class Player : MonoBehaviour
     private InputAction interactAction;
     private InputAction inventoryAction;
     private float walkSpeed;
-    
 
+    [SerializeField] private bool gameOver = false;
 
     private ChainConstraint chain;
     private List<Iinteractable> _interactables = new  List<Iinteractable>();
@@ -57,6 +57,7 @@ public class Player : MonoBehaviour
         //DontDestroyOnLoad(gameObject);
 
         inventoryManager = InventoryManager.Instance;
+        gameOver = false;
     }
 
     private void OnEnable()
@@ -159,13 +160,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_bUIOpened || LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying)
+        if (_bUIOpened || LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying || gameOver)
         {
-            charSpeed = 0;
+            Freeze(true);
         }
         else
         {
-            charSpeed = walkSpeed;
+            Freeze(false);
         }
 
         Scene currentScene = SceneManager.GetActiveScene();
@@ -192,5 +193,16 @@ public class Player : MonoBehaviour
     public void SetUiOpenFalse()
     {
         _bUIOpened = false;
+    }
+
+    public void Freeze(bool freezePlayer)
+    {
+        if (freezePlayer) walkSpeed = 0;
+        else walkSpeed = charSpeed;
+    }
+
+    public void SetGameOver(bool gameover)
+    {
+        gameOver = gameover;
     }
 }

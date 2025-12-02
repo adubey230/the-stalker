@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour{
@@ -7,6 +8,7 @@ public class Timer : MonoBehaviour{
     public bool running = false;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private Slider healthBar;
+    [SerializeField] private EventSystem input;
 
     private float maxTime;
     private void Start()
