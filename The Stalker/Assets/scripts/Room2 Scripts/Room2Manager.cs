@@ -14,6 +14,7 @@ public class Room2Manager : MonoBehaviour
 
     [SerializeField] private GameObject desk;
     [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject fillIn;
 
     private float time = 300f;
 
@@ -26,6 +27,7 @@ public class Room2Manager : MonoBehaviour
 
     void Update()
     {
+        fillIn.SetActive(false);
         Vector3 pos = _player.transform.position;
 
         pos.x = Mathf.Clamp(pos.x, minX, maxX);

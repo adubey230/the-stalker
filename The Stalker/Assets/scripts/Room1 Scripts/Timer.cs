@@ -9,6 +9,9 @@ public class Timer : MonoBehaviour{
     [SerializeField] private GameObject gameOver;
     [SerializeField] private Slider healthBar;
     [SerializeField] private Player player;
+    [SerializeField] private GameObject canvas;
+    private bool notActive = false;
+    private bool once = true;
 
     private float maxTime;
     private void Start()
@@ -27,7 +30,13 @@ public class Timer : MonoBehaviour{
     {
         if (running)
         {
-            if (time > 0)
+            if(!canvas.activeSelf && once)
+            {
+                notActive = true;
+                once = false;
+            }
+            
+            if (time > 0 && notActive)
             {
                 time -= Time.deltaTime;
                 //Debug.Log(time);
