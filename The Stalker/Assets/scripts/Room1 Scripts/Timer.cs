@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour{
     public bool running = false;
     [SerializeField] private GameObject gameOver;
     [SerializeField] private Slider healthBar;
-    [SerializeField] private EventSystem input;
+    [SerializeField] private Player player;
 
     private float maxTime;
     private void Start()
@@ -40,6 +40,7 @@ public class Timer : MonoBehaviour{
                 //Debug.Log("time ran out");
                 time = 0;
                 running = false;
+                player.SetGameOver(true);
                 gameOver.SetActive(true);
                 LocatorDialogue.Instance.DialogueScript.PlayStalkerGameOverAudio();
             }

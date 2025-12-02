@@ -4004,7 +4004,7 @@ MonoBehaviour:
   running: 0
   gameOver: {fileID: 0}
   healthBar: {fileID: 424919915}
-  input: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &424919915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16612,7 +16612,7 @@ MonoBehaviour:
   running: 0
   gameOver: {fileID: 316648034}
   healthBar: {fileID: 424919915}
-  input: {fileID: 0}
+  player: {fileID: 1242973538}
 --- !u!114 &1589975032
 MonoBehaviour:
   m_ObjectHideFlags: 0
