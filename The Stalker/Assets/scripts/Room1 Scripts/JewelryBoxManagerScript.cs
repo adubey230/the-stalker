@@ -10,7 +10,8 @@ public class JewelryBoxManagerScript : MonoBehaviour
 
     [SerializeField] private GameObject _pocketWatch;
     [SerializeField] private Sprite _openBoxSprite;
-
+    
+    private ObjectOutline _objectOutline;
     private SpriteRenderer _spriterenderer;
     private GameObject box_instance;
 
@@ -49,6 +50,8 @@ public class JewelryBoxManagerScript : MonoBehaviour
         box_instance = Instantiate(jewelryBoxPrefab, spawnPoint.position, spawnPoint.rotation);
         _pocketWatch.transform.position = spawnPoint.position;
         _pocketWatch.transform.rotation = spawnPoint.rotation;
+
+        _objectOutline = GameObject.Find("JewelryBox(Clone)").GetComponent<ObjectOutline>();
     }
 
     void FixedUpdate()
@@ -57,6 +60,7 @@ public class JewelryBoxManagerScript : MonoBehaviour
         {
             _spriterenderer = box_instance.GetComponent<SpriteRenderer>();
             _spriterenderer.sprite = _openBoxSprite;
+            _objectOutline.SetDisable();
         }
     }
 }
