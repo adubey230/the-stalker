@@ -1412,6 +1412,7 @@ MonoBehaviour:
   _trapDoor: {fileID: 1314208286}
   carpet: {fileID: 1513970345}
   spoon: {fileID: 216995396}
+  collider: {fileID: 825123220}
 --- !u!4 &106453900
 Transform:
   m_ObjectHideFlags: 0
@@ -8205,6 +8206,98 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.7915039, y: 21.380814}
   m_EdgeRadius: 0
+--- !u!1 &825123220
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 825123221}
+  - component: {fileID: 825123223}
+  - component: {fileID: 825123222}
+  m_Layer: 0
+  m_Name: Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &825123221
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825123220}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1314208288}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &825123222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825123220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecad1f93f0f6f4078b103a96b6e34915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoorCollider
+--- !u!68 &825123223
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825123220}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.020805001, y: 1.3454111}
+  - {x: 2.329258, y: 0.0040006638}
+  - {x: -0.24473736, y: 1.3023881}
+  - {x: -2.4019074, y: -0.0023392737}
+  - {x: 0.13008046, y: -1.3506371}
+  - {x: 2.322815, y: -0.08680092}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &826875304
 GameObject:
   m_ObjectHideFlags: 0
@@ -13346,7 +13439,8 @@ Transform:
   m_LocalPosition: {x: 2.53, y: -3.98, z: 0}
   m_LocalScale: {x: 0.46011004, y: 0.46011004, z: 0.46011004}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 825123221}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1314208289
@@ -13384,6 +13478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BotDoor
   _animator: {fileID: 1314208289}
+  collider: {fileID: 825123220}
 --- !u!61 &1314208291
 BoxCollider2D:
   m_ObjectHideFlags: 0

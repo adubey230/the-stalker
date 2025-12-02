@@ -12,6 +12,7 @@ public class CarpetController : MonoBehaviour
     [SerializeField] private GameObject _trapDoor;
     [SerializeField] private GameObject carpet;
     [SerializeField] private GameObject spoon;
+    [SerializeField] private GameObject collider;
     private bool playerOnCarpet = false;
 
     //when player steps on the carpet, sound will play
@@ -45,6 +46,7 @@ public class CarpetController : MonoBehaviour
             SetSolved();
             _trapDoor.SetActive(true);
             spoon.SetActive(true);
+            collider.SetActive(false);
         }
     }
 
