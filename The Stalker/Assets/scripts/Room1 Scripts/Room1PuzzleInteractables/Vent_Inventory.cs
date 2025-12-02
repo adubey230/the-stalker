@@ -34,7 +34,13 @@ public class Vent_Inventory : PuzzleInteractable
             return true;
         }
         else if(in_vent==false&&bCanvasActive==false){
-            //LocatorDialogue.Instance.DialogueScript.ShowElisaText("What can I use to open the vent?", #)
+
+            //to play audio when player interacts with vent but im not sure if it should be here...
+            if (!LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
+            {
+                LocatorDialogue.Instance.DialogueScript.ShowElisaText("What can I use to open the vent?", 2);
+            }
+            
 
             if(inventory.GetInventoryOpen()==false){
             inventory.ToggleInventory();
