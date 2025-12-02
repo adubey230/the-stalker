@@ -67,7 +67,7 @@ public class DialogueRoom2 : MonoBehaviour
 
     public void NextLine()
     {
-        //Debug.Log("Next line pls");
+        Debug.Log("Next line pls");
         i++;
     }
 
