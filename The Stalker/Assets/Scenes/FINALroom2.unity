@@ -3042,8 +3042,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 451209019}
-        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+      - m_Target: {fileID: 451209024}
+        m_TargetAssemblyTypeName: DialogueRoom2, Assembly-CSharp
         m_MethodName: SkipStalkerDialogue
         m_Mode: 1
         m_Arguments:
