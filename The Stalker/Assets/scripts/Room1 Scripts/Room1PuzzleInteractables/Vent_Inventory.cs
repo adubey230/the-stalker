@@ -41,7 +41,7 @@ public class Vent_Inventory : PuzzleInteractable
             }
             in_vent=true;
             bCanvasActive=true;
-            return false;
+            return true;
         }
         else if(bCanvasActive==true){
             CloseUI();
