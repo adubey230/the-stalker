@@ -58,16 +58,16 @@ public class InteractableUI : MonoBehaviour, Iinteractable
         // {
         //     LocatorDialogue.Instance.DialogueScript.SawClueBoard = true;
         // }
-        
+
         if (interactable.theCanvas.name == "BigPocketWatchClue")
         {
             if (LocatorDialogue.Instance.DialogueScript.SawClueBoard)
             {
-            LocatorDialogue.Instance.DialogueScript.ShowElisaText("A pocket watch? I remember seeing that somewhere…", 1);
+                LocatorDialogue.Instance.DialogueScript.ShowElisaText("A pocket watch? I remember seeing that somewhere…", 1);
             } 
             else
             {
-            LocatorDialogue.Instance.DialogueScript.ShowElisaText("A pocket watch? I wonder what it does…", 2);
+                LocatorDialogue.Instance.DialogueScript.ShowElisaText("A pocket watch? I wonder what it does…", 2);
             }
         }
         

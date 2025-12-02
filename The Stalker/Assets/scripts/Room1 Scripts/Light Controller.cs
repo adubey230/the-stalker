@@ -68,6 +68,8 @@ public class LightController : MonoBehaviour, Iinteractable
             turnLightsOff();
             Debug.Log("time reached 40% of max time");
             _lessThan40Percent = true;
+
+           // LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 2);
         }
         //decreases flicker timer
         current_flicker_time -= Time.deltaTime;
@@ -199,6 +201,13 @@ public class LightController : MonoBehaviour, Iinteractable
         _flickerSound.Stop();
 
         isOf = true;
+
+        if (isOf && time < max_time * 0.40)
+        {
+            LocatorDialogue.Instance.DialogueScript.ShowElisaText("It’s too dark. I can’t see anything…", 2);
+        }
+       
+
     }
     public bool GetIsOffPerm(){
         return isOffPerm;
