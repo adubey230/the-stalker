@@ -110,11 +110,11 @@ public class DeskPapers : MonoBehaviour, IPointerUpHandler, IDragHandler, IPoint
         Debug.Log("OpenClue Called");
         clueOpenManager.DisableOtherPaperRaycastTarget(name);
 
-        if (this.name == "Calendar"  && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
+        if (this.name == "Calendar"  && !LocatorDialogue2.Instance.Dialogue2Script.ElisaAudioPlaying)
         {
             LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("Oh…that's my birthday.", 0);
         }
-        else if (this.name == "ResignationLetter"  && !LocatorDialogue.Instance.DialogueScript.ElisaAudioPlaying)
+        else if (this.name == "ResignationLetter"  && !LocatorDialogue2.Instance.Dialogue2Script.ElisaAudioPlaying)
         {
             LocatorDialogue2.Instance.Dialogue2Script.ShowElisaText("A resignation letter?", 1);
         }
