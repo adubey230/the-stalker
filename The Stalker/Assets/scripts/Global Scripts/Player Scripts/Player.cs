@@ -175,11 +175,11 @@ public class Player : MonoBehaviour
         {
             if (this.transform.position.y > _bedCollider.transform.position.y)
             {
-                _sprite.sortingOrder = 4;
+                _sprite.sortingOrder = 5;
             }
             else
             {
-                _sprite.sortingOrder = 7;
+                _sprite.sortingOrder = 8;
             }
         }
        
