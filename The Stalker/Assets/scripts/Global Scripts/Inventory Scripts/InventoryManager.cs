@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -10,12 +12,12 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private Canvas inventoryUI;
     public static InventoryManager Instance;
 
+    [SerializeField] private List<Item> inventoryCopy = new List<Item>();
+
     public Animator animator;
 
     void Awake()
     {
-        
-       
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -40,10 +42,12 @@ public class InventoryManager : MonoBehaviour
     private void OnEnable()
     {
         GameManager.ItemPickedUp += AddItem;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     private void OnDisable()
     {
         GameManager.ItemPickedUp += AddItem;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void ToggleInventory()
@@ -98,4 +102,23 @@ public class InventoryManager : MonoBehaviour
     {
         return inventoryList;
     }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Debug.Log("Scene loaded: " + scene.name);
+        saveInventory();
+    }
+
+    public static void saveInventory()
+    {
+        Debug.Log("Inventory state saved");
+        Instance.inventoryCopy = Instance.inventoryList.ConvertAll(item => item.Clone());
+    }
+
+    public static void loadInventory()
+    {
+        Debug.Log("Inventory state loaded");
+        Instance.inventoryList = Instance.inventoryCopy.ConvertAll(item => item.Clone());
+    }
+
 }

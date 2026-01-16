@@ -72,4 +72,16 @@ public class Item : MonoBehaviour, Iinteractable
         Debug.Log("Use Item");
         return true;
     }
+    public Item Clone()
+    {
+        Item newItem = new Item();
+        newItem.itemName = this.itemName;
+        newItem.itemSprite = this.itemSprite;
+        newItem.itemSpriteInv = this.itemSpriteInv;
+        newItem.description = this.description;
+        newItem.id = this.id;
+        newItem.initiallyActive = this.initiallyActive;
+        newItem._collectSound = this._collectSound;
+        return newItem;
+    }
 }

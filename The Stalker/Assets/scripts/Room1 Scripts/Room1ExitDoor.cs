@@ -27,7 +27,7 @@ public class Room1ExitDoor : MonoBehaviour
             fadeCanvasGroup.alpha = Mathf.Clamp01(t / fadeDuration);
             yield return null;
         }
-
+        InventoryManager.saveInventory();
         SceneManager.LoadScene(sceneToLoad);
     }
 }
