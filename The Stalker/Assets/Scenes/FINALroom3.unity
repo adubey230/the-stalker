@@ -583,10 +583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c034b0bc34adc4f46a56e77b4928b117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  player: {fileID: 0}
+  player: {fileID: 443226361}
   itemIDNeeded: 0
-  _tireCanvas: {fileID: 0}
-  _trunkCanvas: {fileID: 0}
+  _tireCanvas: {fileID: 859702728}
+  _trunkCanvas: {fileID: 537992426}
 --- !u!58 &142987455
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1340,6 +1340,7 @@ GameObject:
   - component: {fileID: 443226353}
   - component: {fileID: 443226352}
   - component: {fileID: 443226361}
+  - component: {fileID: 443226362}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1613,19 +1614,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 443226351}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecf7cd48172004fc6afdece72d865951, type: 3}
+  m_Script: {fileID: 11500000, guid: 7fbd6c97834284dca8d113e2f5b354a3, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Elisa
+  m_EditorClassIdentifier: Assembly-CSharp::Player
   inputActions: {fileID: -944628639613478452, guid: f051a05a7a2a64fba83c75dfd3cbef54, type: 3}
   charSpeed: 2
   inventoryManager: {fileID: 692943818}
   _animator: {fileID: 443226354}
   _sprite: {fileID: 443226359}
   _walkingSound: {fileID: 443226352}
+  _bedCollider: {fileID: 0}
   _collider: {fileID: 1493878808}
   _interactableOpened: 0
   gameOver: 0
   _bUIOpened: 0
+--- !u!114 &443226362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443226351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e15bc322401fc0945adf15a7f1c33f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChainConstraint
+  isChained: 1
+  anchor: {fileID: 0}
+  radiusX: 0.75
+  radiusY: 0.5
 --- !u!1 &464051351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,7 +1829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &537992427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2365,7 +2383,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &859702729
 RectTransform:
   m_ObjectHideFlags: 0

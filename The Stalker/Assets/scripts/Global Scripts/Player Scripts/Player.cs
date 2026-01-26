@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         walkSpeed=charSpeed;
         //DontDestroyOnLoad(gameObject);
 
-        inventoryManager = InventoryManager.Instance;
+        // inventoryManager = InventoryManager.Instance;
         gameOver = false;
     }
 
