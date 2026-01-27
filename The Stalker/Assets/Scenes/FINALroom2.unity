@@ -5271,7 +5271,7 @@ MonoBehaviour:
   _door: {fileID: 1314208290}
   _sprite: {fileID: 456029982}
   player: {fileID: 1242973538}
-  booksehlf: {fileID: 114866247}
+  bookshelf: {fileID: 456029979}
   spoon: {fileID: 216995396}
   light: {fileID: 1616929804}
   collider: {fileID: 165707886}
@@ -13239,7 +13239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.7301025, y: -9.882202}
+  m_AnchoredPosition: {x: 3.7299805, y: -9.882202}
   m_SizeDelta: {x: -120.2243, y: -104.4285}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1224480888
