@@ -1,4 +1,3 @@
-using UnityEditor.Build.Pipeline;
 using UnityEngine;
 
 public class CarTire : PuzzleInteractable
