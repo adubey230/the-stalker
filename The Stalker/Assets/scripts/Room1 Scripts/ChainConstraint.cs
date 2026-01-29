@@ -15,6 +15,10 @@ public class ChainConstraint : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (anchor == null)
+        {
+            isChained = false;
+        }
     }
 
     // call this function to turn off the chain logic

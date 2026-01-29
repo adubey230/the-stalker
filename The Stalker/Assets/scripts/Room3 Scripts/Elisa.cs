@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class Elisa : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [SerializeField] InputActionAsset inputActions;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] SpriteRenderer _sprite;
     [SerializeField] private AudioSource _walkingSound;
 
-    [SerializeField] GameObject _bedCollider;
+    //[SerializeField] GameObject _bedCollider;
     [SerializeField] CapsuleCollider2D _collider;
     //[SerializeField] private Collider2D _collider4;
     
@@ -40,14 +40,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private bool gameOver = false;
 
-    private ChainConstraint chain;
+    //private ChainConstraint chain;
     private List<Iinteractable> _interactables = new  List<Iinteractable>();
     private Iinteractable currentInteractable;
     [SerializeField] private bool _bUIOpened = false;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        chain = GetComponent<ChainConstraint>();
+        //chain = GetComponent<ChainConstraint>();
 
         actionMap = inputActions.FindActionMap("Player");
         moveAction = actionMap.FindAction("Move");
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         walkSpeed=charSpeed;
         //DontDestroyOnLoad(gameObject);
 
-        // inventoryManager = InventoryManager.Instance;
+        inventoryManager = InventoryManager.Instance;
         gameOver = false;
     }
 
@@ -88,10 +88,9 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         
-        Vector2 proposedVelocity = currentMoveInput * walkSpeed;
-        rb.linearVelocity = chain.FilterMovement(proposedVelocity) * walkSpeed;
-        // Vector2 proposedVelocity = new Vector2(currentMoveInput.x * walkSpeed, currentMoveInput.y * walkSpeed);
-        // rb.velocity = chain.FilterMovement(proposedVelocity); // when chain is not enabled, FIlterMovement returns proposedVelocity with no modifications
+        rb.linearVelocity = currentMoveInput * walkSpeed;
+        //Vector2 proposedVelocity = new Vector2(currentMoveInput.x * walkSpeed, currentMoveInput.y * walkSpeed);
+        //rb.linearVelocity = chain.FilterMovement(proposedVelocity) * walkSpeed; // when chain is not enabled, FIlterMovement returns proposedVelocity with no modifications
     }
 
     void OnMove(InputAction.CallbackContext ctx)
@@ -162,7 +161,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_bUIOpened || LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying || gameOver)
+        bool dialogueBlocking =
+            LocatorDialogue.Instance != null &&
+            LocatorDialogue.Instance.DialogueScript != null &&
+            LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying;
+
+        if (_bUIOpened || dialogueBlocking || gameOver)
         {
             Freeze(true);
         }
@@ -173,17 +177,17 @@ public class Player : MonoBehaviour
 
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == "FINAL room 1")
-        {
-            if (this.transform.position.y > _bedCollider.transform.position.y)
-            {
-                _sprite.sortingOrder = 5;
-            }
-            else
-            {
-                _sprite.sortingOrder = 8;
-            }
-        }
+        // if (currentScene.name == "FINAL room 1")
+        // {
+        //     if (this.transform.position.y > _bedCollider.transform.position.y)
+        //     {
+        //         _sprite.sortingOrder = 5;
+        //     }
+        //     else
+        //     {
+        //         _sprite.sortingOrder = 8;
+        //     }
+        // }
        
     }
 

@@ -16,6 +16,7 @@ TagManager:
   - DialogueSingle
   - book
   - LightSwitch
+  - exitDoor
   layers:
   - Default
   - TransparentFX
