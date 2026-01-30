@@ -162,13 +162,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (_bUIOpened || LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying || gameOver)
+        if (LocatorDialogue.Instance != null)
         {
-            Freeze(true);
-        }
-        else
-        {
-            Freeze(false);
+            if (_bUIOpened || LocatorDialogue.Instance.DialogueScript.StalkerAudioPlaying || gameOver)
+            {
+                Freeze(true);
+            }
+            else
+            {
+                Freeze(false);
+            }
         }
 
         Scene currentScene = SceneManager.GetActiveScene();
