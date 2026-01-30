@@ -125,5 +125,4 @@ public class GameManager : MonoBehaviour
             panel.SetActive(false);
         }
     }
-    
 }

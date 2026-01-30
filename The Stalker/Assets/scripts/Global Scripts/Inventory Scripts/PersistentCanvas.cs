@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class InventoryCanvasSingleton : MonoBehaviour
+public class PersistentCanvas : MonoBehaviour
 {
-    private static InventoryCanvasSingleton Instance;
+    private static PersistentCanvas Instance;
     void Start()
     {
         if (Instance != null && Instance != this)
@@ -15,10 +15,7 @@ public class InventoryCanvasSingleton : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
     }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
