@@ -10,7 +10,7 @@ public class ExitDoor : MonoBehaviour
     [SerializeField] private GameObject cabinet_correct;
     public bool drawerOpened;
     private float lock_timer=1000;
-    private bool correct;
+    public bool correct;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         drawerOpened=false;
